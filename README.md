@@ -1,5 +1,68 @@
 # RETO 8 👽
 
+## Ejercicio 1
+- Realizar 3 funciones de retos anteriores en forma de lambdas.
+  - Ejercicio 2 del **Reto 5**.
+  ```python
+  import math  # Importa el módulo math para poder usar el valor de pi (π)
+
+  # Define una función lambda que calcula el área y perímetro de un rectángulo dados su base (b) y altura (a)
+  area_perimetro_rectangulo = lambda b, a: (b * a, 2 * (b + a))
+
+  # Define una función lambda que calcula el área y perímetro de un círculo dado su radio (r)
+  area_perimetro_circulo = lambda r: (math.pi * r ** 2, 2 * math.pi * r)
+
+  if __name__ == "__main__":
+    # Inputs que solicitan al usuario que ingrese los datos necesarios para el calculo y la convierte a float
+    b = float(input("Ingrese la base del rectángulo: "))
+    
+    a = float(input("Ingrese la altura del rectángulo: "))
+    
+    r = float(input("Ingrese el radio del círculo: "))
+
+    # llamada de lambdas
+    area_rect, perim_rect = area_perimetro_rectangulo(b, a)
+
+    area_circ, perim_circ = area_perimetro_circulo(r)
+
+    area_total = area_rect + 2 * area_circ
+
+    perimetro_total = perim_rect + 2 * perim_circ
+
+    # Impresion de los resultados
+
+    print("Área y perímetro del rectángulo:", area_rect, perim_rect)
+
+    print("Área y perímetro del círculo:", area_circ, perim_circ)
+    
+    print("Área total:", area_total)
+
+    print("Perímetro total:", perimetro_total)
+
+  ```
+  **Diagrama de Flujo**
+  ``` mermaid
+  ---
+  config:
+    theme: redux
+  ---
+  flowchart TD
+    A[Inicio] --> B[Ingresar base del rectángulo]
+    B --> C[Ingresar altura del rectángulo]
+    C --> D[Ingresar radio del círculo]
+    D --> E[Llamar funcion area_perimetro_rectangulo]
+    D --> F[Llamar funcion area_perimetro_circulo]
+
+    E --> G[Área, perímetro rectángulo]
+    F --> H[Área, perímetro círculo]
+    
+    G --> I[Realizar cálculos]
+    H --> I
+    I --> J[Área y perímetro totales]
+    I --> K[Imprimir resultados]
+    K --> L[Final]
+  ```
+
 ## Ejercicio 3
 - Escriba una función recursiva para calcular la operación de la potencia.
 ```python
@@ -50,5 +113,64 @@ graph TD
 
 ```
 
+## Ejercicio 4
+
+- **Plantilla para contar el tiempo**
+    ```python
+    import time
+
+    start_time = time.time()
+    # instrucciones sobre las cuales se quiere medir tiempo de ejecución
+    end_time = time.time()
+
+    timer = end_time - start_time
+    print(timer)
+    ```
+- **Mi code**
+    ```python
+    import time
+
+    start_time = time.time()
+    # instrucciones sobre las cuales se quiere medir tiempo de ejecución
+    numero = 35 # al variar entre 0 y 35, el tiempo de ejecucion no supero los 2.0 segundos
+    def fibo_recursivo (numero: int)->int:
+    if numero <= 1:
+        return 1
+    else:
+        return fibo_recursivo(numero-1) + fibo_recursivo(numero-2)
+    
+    end_time = time.time()
+
+    timer = end_time - start_time
+    print(fibo_recursivo(numero))
+    print(timer)
+    ```
+Dentr odel intervalo (0,35] la diferencua en el tiempo de  ejecucion no es considerable, sin embargo, al pasar de ahi (a partir de 36 supera 2.0 segundos) el tiempo crece exponencialmente.
+
+- **Observación del hilo de Stackoverflow**
+
+    ```python
+    import timeit
+
+    def fibonacci_rec(n):
+        if n <= 1:
+            return n
+        return fibonacci_rec(n-1) + fibonacci_rec(n-2)
+
+    umbral = 2.0
+    n = 0
+
+    while True:
+        tiempo = timeit.timeit(lambda: fibonacci_rec(n), number=1)
+        print(f"n = {n}, tiempo = {tiempo:.4f} segundos")
+
+        if tiempo > umbral:
+            print(f"\n Desde n = {n} el tiempo supera los {umbral} segundos.")
+            break
+        n += 1
+    ```
+En el [hilo](https://stackoverflow.com/questions/8220801/how-to-use-timeit-module) se explica como usar el modulo **timeit** para medir el tiempo de ejecucion, ademas tambien se explica por que conviene mas utilizar este modulo que **time** (otro modulo para calcular el tiempo) pues este puede verse afectado por procesos en segundo plano del sistema operativo.
+
+ Lo realmente importante se encuentra en la variable **tiempo** la cual almacena el tiempo de ejecucion para numeros crecientes de n (por eso el loop infinito) y posteriormente se imprimen las veces que se itero hasta que supere el umbral de tiempo que propuse imprimiendo al finalizar: Desde n = 36 el tiempo supera los 2.0 segundos.
 # Autor 🤖
 - [Juan Carlos Polania Bolivar](https://github.com/Ciyuang)
