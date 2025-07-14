@@ -2,66 +2,117 @@
 
 ## Ejercicio 1
 - Realizar 3 funciones de retos anteriores en forma de lambdas.
-  - Ejercicio 2 del **Reto 5**.
-  ```python
-  import math  # Importa el módulo math para poder usar el valor de pi (π)
+  1. Ejercicio 2 del **Reto 5**.
+        ```python
+        import math  # Importa el módulo math para poder usar el valor de pi (π)
 
-  # Define una función lambda que calcula el área y perímetro de un rectángulo dados su base (b) y altura (a)
-  area_perimetro_rectangulo = lambda b, a: (b * a, 2 * (b + a))
+        # Define una función lambda que calcula el área y perímetro de un rectángulo dados su base (b) y altura (a)
+        area_perimetro_rectangulo = lambda b, a: (b * a, 2 * (b + a))
 
-  # Define una función lambda que calcula el área y perímetro de un círculo dado su radio (r)
-  area_perimetro_circulo = lambda r: (math.pi * r ** 2, 2 * math.pi * r)
+        # Define una función lambda que calcula el área y perímetro de un círculo dado su radio (r)
+        area_perimetro_circulo = lambda r: (math.pi * r ** 2, 2 * math.pi * r)
 
-  if __name__ == "__main__":
-    # Inputs que solicitan al usuario que ingrese los datos necesarios para el calculo y la convierte a float
-    b = float(input("Ingrese la base del rectángulo: "))
-    
-    a = float(input("Ingrese la altura del rectángulo: "))
-    
-    r = float(input("Ingrese el radio del círculo: "))
+        if __name__ == "__main__":
+            # Inputs que solicitan al usuario que ingrese los datos necesarios para el calculo y la convierte a float
+            b = float(input("Ingrese la base del rectángulo: "))
+            
+            a = float(input("Ingrese la altura del rectángulo: "))
+            
+            r = float(input("Ingrese el radio del círculo: "))
 
-    # llamada de lambdas
-    area_rect, perim_rect = area_perimetro_rectangulo(b, a)
+            # llamada de lambdas
+            area_rect, perim_rect = area_perimetro_rectangulo(b, a)
 
-    area_circ, perim_circ = area_perimetro_circulo(r)
+            area_circ, perim_circ = area_perimetro_circulo(r)
 
-    area_total = area_rect + 2 * area_circ
+            area_total = area_rect + 2 * area_circ
 
-    perimetro_total = perim_rect + 2 * perim_circ
+            perimetro_total = perim_rect + 2 * perim_circ
 
-    # Impresion de los resultados
+            # Impresion de los resultados
 
-    print("Área y perímetro del rectángulo:", area_rect, perim_rect)
+            print("Área y perímetro del rectángulo:", area_rect, perim_rect)
 
-    print("Área y perímetro del círculo:", area_circ, perim_circ)
-    
-    print("Área total:", area_total)
+            print("Área y perímetro del círculo:", area_circ, perim_circ)
+            
+            print("Área total:", area_total)
 
-    print("Perímetro total:", perimetro_total)
+            print("Perímetro total:", perimetro_total)
 
-  ```
-  **Diagrama de Flujo**
-  ``` mermaid
-  ---
-  config:
-    theme: redux
-  ---
-  flowchart TD
-    A[Inicio] --> B[Ingresar base del rectángulo]
-    B --> C[Ingresar altura del rectángulo]
-    C --> D[Ingresar radio del círculo]
-    D --> E[Llamar funcion area_perimetro_rectangulo]
-    D --> F[Llamar funcion area_perimetro_circulo]
+        ```
 
-    E --> G[Área, perímetro rectángulo]
-    F --> H[Área, perímetro círculo]
-    
-    G --> I[Realizar cálculos]
-    H --> I
-    I --> J[Área y perímetro totales]
-    I --> K[Imprimir resultados]
-    K --> L[Final]
-  ```
+        **Diagrama de Flujo**
+        ``` mermaid
+        ---
+        config:
+            theme: redux
+        ---
+        flowchart TD
+            A[Inicio] --> B[Ingresar base del rectángulo]
+            B --> C[Ingresar altura del rectángulo]
+            C --> D[Ingresar radio del círculo]
+            D --> E[Llamar funcion area_perimetro_rectangulo]
+            D --> F[Llamar funcion area_perimetro_circulo]
+
+            E --> G[Área, perímetro rectángulo]
+            F --> H[Área, perímetro círculo]
+            
+            G --> I[Realizar cálculos]
+            H --> I
+            I --> J[Área y perímetro totales]
+            I --> K[Imprimir resultados]
+            K --> L[Final]
+        ```
+
+  2. Ejercicio 4 **Reto 4**
+
+        ```python
+        if __name__ == "__main__":
+            # Ingreso de variables por el usuario
+            n1 = float(input("Ingrese un numero"))
+            n2 = float(input("Ingrese un numero"))
+            # Funcion lambda y llamado de la misma 
+            funcion_multiplo = lambda n1,n2 : n1 % n2
+            multiplo = funcion_multiplo(n1, n2)
+            # Condicionales a modo de respuesta para el usuario
+            if multiplo == 0:
+                print(f"{n1} es multiplo de {n2}")
+            else:
+                print(f"{n1} no es multiplo de {n2}")
+        ```
+        **Diagrama de Flujo**
+        ``` mermaid
+        ---
+        config:
+        theme: redux
+        ---
+        flowchart TD
+        A[Inicio] --> B[Entrada n1]
+        B --> C[Entrada n2]
+        C --> D[Definir función lambda: n1 % n2]
+        D --> E[Llamar función y guardar en 'multiplo']
+        E --> F{multiplo == 0?}
+        F -- Sí --> G[Imprimir: n1 es múltiplo de n2]
+        F -- No --> H[Imprimir: n1 no es múltiplo de n2]
+        G --> I[Final]
+        H --> I
+
+        ```
+  2. Ejercicio 4 **Reto 4**
+
+        ```python
+
+        ```
+        **Diagrama de Flujo**
+        ``` mermaid
+        ---
+        config:
+        theme: redux
+        ---
+
+
+        ```
+  
 
 ## Ejercicio 3
 - Escriba una función recursiva para calcular la operación de la potencia.
@@ -171,6 +222,15 @@ Dentr odel intervalo (0,35] la diferencua en el tiempo de  ejecucion no es consi
     ```
 En el [hilo](https://stackoverflow.com/questions/8220801/how-to-use-timeit-module) se explica como usar el modulo **timeit** para medir el tiempo de ejecucion, ademas tambien se explica por que conviene mas utilizar este modulo que **time** (otro modulo para calcular el tiempo) pues este puede verse afectado por procesos en segundo plano del sistema operativo.
 
- Lo realmente importante se encuentra en la variable **tiempo** la cual almacena el tiempo de ejecucion para numeros crecientes de n (por eso el loop infinito) y posteriormente se imprimen las veces que se itero hasta que supere el umbral de tiempo que propuse imprimiendo al finalizar: Desde n = 36 el tiempo supera los 2.0 segundos.
+Lo realmente importante se encuentra en la variable **tiempo** la cual almacena el tiempo de ejecucion para numeros crecientes de n (por eso el loop infinito) y posteriormente se imprimen las veces que se itero hasta que supere el umbral de tiempo que propuse imprimiendo al finalizar: Desde n = 36 el tiempo supera los 2.0 segundos.
+
+## Mi cuenta de Stackoverflow (5)
+![img_cuenta](stack.png)
+[Stackoverflow](https://stackoverflow.com/users/31033491/juan-carlos-polania-bolivar)
+
+## Mi cuenta de Linkedin (6)
+![img_cuenta](linkedin.png)
+[Linkedin](https://www.linkedin.com/in/juan-carlos-polania-bolivar-9733b1373/)
+
 # Autor 🤖
 - [Juan Carlos Polania Bolivar](https://github.com/Ciyuang)
