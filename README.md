@@ -98,21 +98,6 @@
         H --> I
 
         ```
-  2. Ejercicio 4 **Reto 4**
-
-        ```python
-
-        ```
-        **Diagrama de Flujo**
-        ``` mermaid
-        ---
-        config:
-        theme: redux
-        ---
-
-
-        ```
-  
 
 ## Ejercicio 3
 - Escriba una función recursiva para calcular la operación de la potencia.
